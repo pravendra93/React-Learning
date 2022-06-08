@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Header from "./components/Header";
 function App() {
   return (
-    <div className="App">
+    // fragment
+    <>
+      <div className="App">
+      <Header something="Pravendra" className="headerdiff" id="23"></Header>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +22,8 @@ function App() {
         </a>
       </header>
     </div>
+    </>
+
   );
 }
 
