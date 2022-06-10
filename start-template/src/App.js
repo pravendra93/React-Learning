@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header";
+import Header2 from './components/Header2';
 function App() {
   return (
     // fragment
     <>
       <div className="App">
-      <Header something="Pravendra" className="headerdiff" id="23"></Header>
+      {/* <Header something="Pravendra" className="headerdiff" id="23"></Header> */}
+      <Header2 />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
