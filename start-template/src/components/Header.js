@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 const Header = ({something, ...otherProps}) => {
+    //Hooks
+    const [user, setUser] = useState({name:"Pravendra", lastName:"Kumar"})
     const checkMyName = (e) => {
-        console.log("callled")
+        setUser({name:"Javed", lastName:"Khan"})
     }
 
     return (
         <div className={`header-class ${otherProps.className}`}>
-            <h1>Header</h1>
-            <a onClick={checkMyName}>Click</a>
+            <h1>Header : {user.name}-{user.lastName}</h1>
+            <a onClick={checkMyName} style={{cursor:"pointer"}}>Click</a>
         </div>
     )
 
