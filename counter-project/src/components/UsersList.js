@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios"
-const UsersList = () => {
+const UsersList = ({setUser}) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -19,7 +19,10 @@ const UsersList = () => {
             <h1>Users </h1>
             {
                 loading ? <p>loading...</p> : data.map((user) => {
-                    return <li key={user.id} > {user.name} : {user.email} </li>
+                    return <li key={user.id} style={{cursor: "pointer"}} onClick={(e) => {
+                            e.preventDefault();
+                            setUser(user.id)
+                    }} > {user.name} : {user.email} </li>
                 })
             }
         </>
