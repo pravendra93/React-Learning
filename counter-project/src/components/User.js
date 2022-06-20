@@ -1,20 +1,22 @@
 import React, { useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import axios from "axios";
 
 const User = (props) => {
      const [user, setUser] = useState(null);
      const [loading, setLoading] = useState(true);
+     const params = useParams();
      useEffect(() => {
          const fetchUser = async() => {
             setLoading(true)
-            const userData = await axios.get(`https://jsonplaceholder.typicode.com/users/${props.userId}`);
+            const userData = await axios.get(`https://jsonplaceholder.typicode.com/users/${params.userId}`);
             setLoading(false);
             setUser(userData.data);
          }
-         if(props.userId){
+         if(params.userId){
             fetchUser();
          }
-     },[props.userId])
+     },[params.userId])
 
     return (<>
         {
