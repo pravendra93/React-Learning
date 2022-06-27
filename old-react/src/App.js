@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Routes,
+  Switch,
   Route
 } from "react-router-dom";
 
@@ -13,11 +13,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-        <Routes>
-          <Route  path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <Switch>
+          <Route exact path="/" > <Home/> </Route>
+          <Route path="/about"><About/></Route>
+          <Route path="/contact" component={Contact} />
+        </Switch>
     </div>
   );
 }
