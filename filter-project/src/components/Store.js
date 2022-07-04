@@ -1,10 +1,10 @@
 import React from "react";
 
-const Store = ({ dataItems }) => {
+const Store = ({ dataItems, onFilterItems }) => {
 
      const renderItems = () => {
       return dataItems.map((item) => {
-        return <div className="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item={item.type}>
+        return <div className="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item={item.type} key={item.id}>
         <div className="card ">
           <div className="img-container">
             <img src={require(`../assets/img/${item.image}`)} className="card-img-top store-img" alt="" />
@@ -34,11 +34,11 @@ const Store = ({ dataItems }) => {
           </div>
           <div className="row">
             <div className=" col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
-              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="all"> all</a>
-              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="cakes">cakes</a>
-              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="cupcakes">cupcakes</a>
-              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="sweets">sweets</a>
-              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="doughnuts">doughnuts</a>
+              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="all" onClick={onFilterItems} > all</a>
+              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="cakes"  onClick={onFilterItems}>cakes</a>
+              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="cupcakes"  onClick={onFilterItems}>cupcakes</a>
+              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="sweets"  onClick={onFilterItems}>sweets</a>
+              <a href="#" className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="doughnuts"  onClick={onFilterItems}>doughnuts</a>
             </div>
           </div>
           <div className="row">
