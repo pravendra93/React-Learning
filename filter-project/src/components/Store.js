@@ -1,6 +1,6 @@
 import React from "react";
 
-const Store = ({ dataItems, onFilterItems }) => {
+const Store = ({ dataItems, onFilterItems, addToCart }) => {
 
      const renderItems = () => {
       return dataItems.map((item) => {
@@ -8,7 +8,7 @@ const Store = ({ dataItems, onFilterItems }) => {
         <div className="card ">
           <div className="img-container">
             <img src={require(`../assets/img/${item.image}`)} className="card-img-top store-img" alt="" />
-            <span className="store-item-icon">
+            <span className="store-item-icon" onClick={() => {addToCart(item)}}>
               <i className="fas fa-shopping-cart"></i>
             </span>
           </div>

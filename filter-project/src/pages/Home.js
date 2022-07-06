@@ -90,6 +90,7 @@ const dataItems = [
 ];
 const Home = () => {
   const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
     setItems(dataItems);
   }, []);
@@ -103,11 +104,16 @@ const Home = () => {
         : dataItems.filter((item) => item.type === filter);
     setItems(filterItems);
   };
+
+  const addToCart = (item) => {
+      cartItems.push(item)
+      setCartItems([...cartItems])
+  }
   return (
     <>
-      <Header />
+      <Header cartItems={cartItems} />
       <AboutData />
-      <Store dataItems={items} onFilterItems={filterItems} />
+      <Store dataItems={items} onFilterItems={filterItems} addToCart={addToCart} />
     </>
   );
 };
