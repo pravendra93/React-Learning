@@ -109,9 +109,14 @@ const Home = () => {
       cartItems.push(item)
       setCartItems([...cartItems])
   }
+
+  const removeCartItems = (id) => {
+      const items = cartItems.filter((item) => item.id !== id);
+      setCartItems(items)
+  }
   return (
     <>
-      <Header cartItems={cartItems} />
+      <Header cartItems={cartItems} onRemoveCartItems={removeCartItems}/>
       <AboutData />
       <Store dataItems={items} onFilterItems={filterItems} addToCart={addToCart} />
     </>
