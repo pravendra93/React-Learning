@@ -1,9 +1,14 @@
 import React from "react";
-
-const Store = ({ dataItems, onFilterItems, addToCart }) => {
+import { useSelector } from "react-redux";
+const Store = ({ onFilterItems, addToCart }) => {
+  const { products } = useSelector((store) => {
+      return {
+        products: store.product.products
+      }
+  })
 
      const renderItems = () => {
-      return dataItems.map((item) => {
+      return products.map((item) => {
         return <div className="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item={item.type} key={item.id}>
         <div className="card ">
           <div className="img-container">

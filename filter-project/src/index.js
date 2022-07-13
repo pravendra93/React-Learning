@@ -9,11 +9,12 @@ import "./assets/css/style.css";
 import "./assets/css/all.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import store from "./store"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={{}}>
+    <Provider store={store}>
       <Router>
       <App />
       </Router>   
