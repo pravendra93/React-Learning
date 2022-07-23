@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-const Store = ({ onFilterItems, addToCart }) => {
+const Store = ({ onFilterItems, addToCart, onSearchItems }) => {
+  const [search, setSearch] = useState("");
   const { products } = useSelector((store) => {
       return {
         products: store.product.products
@@ -52,9 +53,15 @@ const Store = ({ onFilterItems, addToCart }) => {
               <form>
                 <div className="input-group mb-3">
                   <div className="input-group-prepend ">
-                    <span className="input-group-text search-box" id="search-icon"><i className="fas fa-search"></i></span>
+                    <span className="input-group-text search-box" id="search-icon" onClick={() => {
+                      onSearchItems(search)
+                    }}><i className="fas fa-search"></i></span>
                   </div>
-                  <input type="text" className="form-control" placeholder='item....' id="search-item" />
+                  <input type="text" className="form-control" placeholder='item....' id="search-item" value={search} onChange={(e) => {
+                    e.preventDefault();
+                    setSearch(e.target.value);
+                    onSearchItems(e.target.value)
+                  }}/>
                 </div>
     
               </form>
